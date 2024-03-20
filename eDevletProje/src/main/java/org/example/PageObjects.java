@@ -9,7 +9,7 @@ public class PageObjects extends AbstractClass {
 
     WebDriver driver;
 
-    public PageObjects() {
+    public PageObjects() { //Driver ile açılan sayfadaki elementleri bulmamıza yardımcı olan constructor
 
         driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
@@ -51,7 +51,7 @@ public class PageObjects extends AbstractClass {
         clickFunction(girisYapButonu2);
     }
 
-    @FindBy(xpath = "/html/body/main/div/section/aside/ul/li[1]") //sol yanda yer alan mesaj
+    @FindBy(xpath = "/html/body/main/div/section/aside/ul/li[1]") //sol yanda yer alan bilgilendirme mesaj
     private WebElement controlMessage;
     public void leftAreaCheck() {
 
@@ -59,14 +59,14 @@ public class PageObjects extends AbstractClass {
     }
 
     @FindBy(id = "adresDegisiklik")
-    private WebElement adresDegisiklikButon;
+    private WebElement adresDegisiklikButon; //adres değişiklik butonu
     public void clickOnAdresDegisiklikButon() {
 
         clickFunction(adresDegisiklikButon);
     }
 
     @FindBy(className = "richText")
-    private WebElement serviceInfoMessage;
+    private WebElement serviceInfoMessage; //adres değişiklik butonuna tıklayınca açılan ekrandaki bilgilendirme mesajı
     public void serviceCheck() {
 
         assertion(serviceInfoMessage, "Bu hizmeti kullanarak, yerleşim yeri adresi ve/veya diğer adres bildiriminde bulunabilirsiniz.");
