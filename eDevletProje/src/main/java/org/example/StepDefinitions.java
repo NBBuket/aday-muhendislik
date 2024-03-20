@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class LocationChangeSteps {
+public class StepDefinitions {
 
     private WebDriver driver;
     PageObjects page = new PageObjects();
@@ -21,7 +21,7 @@ public class LocationChangeSteps {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
-    @And("click Giris Yap button")
+    @Given("click Giris Yap button")
     public void click_giris_yap_button() {
 
         page.clickOnGirisYapButonu();
@@ -47,11 +47,26 @@ public class LocationChangeSteps {
         page.clickOnGirisYapButonu2();
     }
 
-    @And("navigate to location link")
+    @When("navigate to location link")
     public void navigate_to_location_link() {
 
         driver.get("https://www.turkiye.gov.tr/ikametgahim-adrese-bagli-hizmetler");
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    }
+
+    /* Genel bir yönlendirme yapmak istediğimizde kullanılacak olan navigate fonksiyonu
+    @When("navigate to location link")
+    public void navigate_to_location_link(String link) {
+
+        driver.get(link);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    }
+    */
+
+    @Then("check the left info area")
+    public void check_the_left_info_area() {
+
+        page.leftAreaCheck();
     }
 
     @When("click on adres degisiklik button")

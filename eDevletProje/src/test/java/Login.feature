@@ -22,6 +22,10 @@ Feature: Login Test
     When navigate to location link
     #ikametgah bilgilerinin yer aldığı sekmeye yönlendiriyor.
 
+    #"When navigate to the link "<link>" yaparsak
+    #genel bir hizmet linkine yönlendirme olarak da kullanılabilir.
+    #bu durumda example kısmına link eklenir ve test gerçekleştirilir.
+
     Then check the left info area
     #solda yer alan bilgi mesajının doğruluğunu kontrol ediyor.
 
