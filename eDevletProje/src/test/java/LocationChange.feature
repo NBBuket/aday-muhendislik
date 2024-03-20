@@ -1,6 +1,6 @@
 Feature: Location Changing
 
-  Scenario: Login to e-Devlet and click location change button
+  Background:
 
     Given open the website
     #e-devlet sitesini açıyor.
@@ -8,17 +8,13 @@ Feature: Location Changing
     And click Giris Yap button
     #sağ üstteki giriş yap butonuna tıklıyor.
 
-    And click TC Kimlik No area
-    #tc kimlik no girme kısmına tıklıyor.
+  Scenario Outline: Login to e-Devlet and click location change button
 
-    And type tck
-    #tc kimlik no'sunu yazdırıyor.
+    And type tck "<tck>"
+    #tc kimlik no girme kısmına tıklıyor ve tc kimlik no'sunu yazdırıyor.
 
-    And click e-Devlet sifresi area
-    #şifre girme kısmına tıklıyor.
-
-    And type password
-    #şifreyi yazdırıyor.
+    And type password "<password>"
+    #şifre girme kısmına tıklıyor ve şifreyi yazdırıyor.
 
     And click on giris yap button
     #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
@@ -31,3 +27,6 @@ Feature: Location Changing
 
     Then check the service info message
     #adres değişikliği sayfasının yüklenip yüklenmediğini kontrol ediyor.
+
+    Examples:
+      | tck | password |

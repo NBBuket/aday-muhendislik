@@ -1,6 +1,6 @@
 Feature: Login Test
 
-  Scenario: Go to the e-Devlet page and login, open the location link
+  Background:
 
     Given open the website
     #e-devlet sitesini açıyor.
@@ -8,17 +8,13 @@ Feature: Login Test
     And click Giris Yap button
     #sağ üstteki giriş yap butonuna tıklıyor.
 
-    And click TC Kimlik No area
-    #tc kimlik no girme kısmına tıklıyor.
+  Scenario Outline: Go to the e-Devlet page and login, open the location link
 
-    And type tck
-    #tc kimlik no'sunu yazdırıyor.
+    And type tck "<tck>"
+    #tc kimlik no girme kısmına tıklıyor ve tc kimlik no'sunu yazdırıyor.
 
-    And click e-Devlet sifresi area
-    #şifre girme kısmına tıklıyor.
-
-    And type password
-    #şifreyi yazdırıyor.
+    And type password "<password>"
+    #şifre girme kısmına tıklıyor ve şifreyi yazdırıyor.
 
     And click on giris yap button
     #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
@@ -28,3 +24,6 @@ Feature: Login Test
 
     Then check the left info area
     #solda yer alan bilgi mesajının doğruluğunu kontrol ediyor.
+
+    Examples:
+      | tck | password |

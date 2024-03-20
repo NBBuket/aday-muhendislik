@@ -28,9 +28,9 @@ public class PageObjects extends AbstractClass {
 
         clickFunction(tckArea);
     }
-    public void typeTck() {
+    public void typeTck(String tck) {
 
-        sendKeysFunctions(tckArea, ""); //value olarak tc kimlik numarası verilmeli
+        sendKeysFunctions(tckArea, tck); //value olarak tc kimlik numarası verilmeli
     }
 
     @FindBy(id = "egpField") //şifre girme alanı
@@ -39,9 +39,9 @@ public class PageObjects extends AbstractClass {
 
         clickFunction(sifreArea);
     }
-    public void typeSifre() {
+    public void typeSifre(String password) {
 
-        sendKeysFunctions(sifreArea, ""); //value olarak şifre verilmeli
+        sendKeysFunctions(sifreArea, password); //value olarak şifre verilmeli
     }
 
     @FindBy(name = "submitButton") //tc ve şifre yazıldıktan sonra tıklanması gereken giriş yap butonu
