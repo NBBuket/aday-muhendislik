@@ -11,7 +11,8 @@ import java.util.concurrent.TimeUnit;
 public class StepDefinitions {
 
     private WebDriver driver;
-    PageObjects page = new PageObjects();
+    LoginPageObjects page = new LoginPageObjects();
+    NavigatePageObjects navPage = new NavigatePageObjects();
 
     @Given("open the website")
     public void open_the_website() {
@@ -41,43 +42,33 @@ public class StepDefinitions {
         page.typeSifre(password);
     }
 
-    @And("click on giris yap button")
+    @When("click on giris yap button")
     public void click_on_giris_yap_button() {
 
         page.clickOnGirisYapButonu2();
     }
 
-    @When("navigate to location link")
-    public void navigate_to_location_link() {
+    @Then("check the main info")
+    public void checkTheMainInfo() {
 
-        driver.get("https://www.turkiye.gov.tr/ikametgahim-adrese-bagli-hizmetler");
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        page.mainInfoCheck();
     }
 
-    /* Genel bir yönlendirme yapmak istediğimizde kullanılacak olan navigate fonksiyonu
-    @When("navigate to location link")
-    public void navigate_to_location_link(String link) {
+    @When("navigate to the given link {string}")
+    public void navigate_to_the_given_link(String link) {
 
         driver.get(link);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
-    */
+    @Then("check the info box")
+    public void check_the_info_box() {
 
-    @Then("check the left info area")
-    public void check_the_left_info_area() {
-
-        page.leftAreaCheck();
+        navPage.infoBoxCheck();
     }
 
-    @When("click on adres degisiklik button")
-    public void click_on_adres_degisiklik_button() {
+    @Then("click on combo box {string}")
+    public void clickOnComboBox(String comboBoxElement) {
 
-        page.clickOnAdresDegisiklikButon();
-    }
-
-    @Then("check the service info message")
-    public void check_the_service_info_message() {
-
-        page.serviceCheck();
+        navPage.clickOnComboBox(comboBoxElement);
     }
 }

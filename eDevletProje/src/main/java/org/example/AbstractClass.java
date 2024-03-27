@@ -3,6 +3,7 @@ package org.example;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -33,5 +34,12 @@ public abstract class AbstractClass {
         wait.until(ExpectedConditions.visibilityOf(actual));
         Assert.assertEquals(actual.getText(), expected);
         System.out.println("Message: " + actual.getText());
+    }
+
+    //ComboBox classındaki dropdown elemanlarından seçilecek olanı seçen fonksiyon
+    public void selectElementFromDropdown(WebElement dropdown, String element){
+
+        Select slc = new Select(dropdown);
+        slc.selectByVisibleText(element);
     }
 }

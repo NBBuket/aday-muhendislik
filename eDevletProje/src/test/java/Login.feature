@@ -1,6 +1,6 @@
 Feature: Login Test
 
-  Background:
+  Scenario Outline: Login to the e-Devlet page
 
     Given open the website
     #e-devlet sitesini açıyor.
@@ -8,25 +8,16 @@ Feature: Login Test
     And click Giris Yap button
     #sağ üstteki giriş yap butonuna tıklıyor.
 
-  Scenario Outline: Go to the e-Devlet page and login, open the location link
-
     And type tck "<tck>"
     #tc kimlik no girme kısmına tıklıyor ve tc kimlik no'sunu yazdırıyor.
 
     And type password "<password>"
     #şifre girme kısmına tıklıyor ve şifreyi yazdırıyor.
 
-    And click on giris yap button
+    When click on giris yap button
     #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
 
-    When navigate to location link
-    #ikametgah bilgilerinin yer aldığı sekmeye yönlendiriyor.
-
-    #"When navigate to the link "<link>" yaparsak
-    #genel bir hizmet linkine yönlendirme olarak da kullanılabilir.
-    #bu durumda example kısmına link eklenir ve test gerçekleştirilir.
-
-    Then check the left info area
+    Then check the main info
     #solda yer alan bilgi mesajının doğruluğunu kontrol ediyor.
 
     Examples:
