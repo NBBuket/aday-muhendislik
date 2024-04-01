@@ -22,11 +22,31 @@ public class NavigatePageObjects extends AbstractClass {
         System.out.println("Message: " + controlMessage.getText());
     }
 
-    @FindBy(className = "comboBox") //classı comboBox olan ilk web elementi
+    @FindBy(name = "basvuruTipi") //classı comboBox olan başvuru dropdown elementi
     private WebElement comboBox;
-
-    public void clickOnComboBox(String comboBoxElement) {
+    public void clickOnBasvuruComboBox(String comboBoxElement) {
 
         selectElementFromDropdown(comboBox, comboBoxElement);
+    }
+
+    @FindBy(name = "ilceKodu") ////classı comboBox olan ilçe dropdown elementi
+    private WebElement ilceComboBox;
+    public void clickOnIlceComboBox(String ilce) {
+
+        selectElementFromDropdown(ilceComboBox, ilce);
+    }
+
+    @FindBy(name = "mahalleKodu") ////classı comboBox olan mahalle dropdown elementi
+    private WebElement mahalleComboBox;
+    public void clickOnMahalleComboBox(String mahalle) {
+
+        selectElementFromDropdown(mahalleComboBox, mahalle);
+    }
+
+    @FindBy(name = "caddeSokakKodu") ////classı comboBox olan cadde/sokak dropdown elementi
+    private WebElement caddeSokakComboBox;
+    public void clickOnCaddeSokakComboBox(String caddeSokak) {
+
+        selectElementFromDropdown(caddeSokakComboBox, caddeSokak);
     }
 }

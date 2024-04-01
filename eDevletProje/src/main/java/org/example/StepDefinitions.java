@@ -5,7 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class StepDefinitions {
@@ -66,9 +65,27 @@ public class StepDefinitions {
         navPage.infoBoxCheck();
     }
 
-    @Then("click on combo box {string}")
-    public void clickOnComboBox(String comboBoxElement) {
+    @Then("click on basvuru combo box {string}")
+    public void clickOnBasvuruComboBox(String comboBoxElement) {
 
-        navPage.clickOnComboBox(comboBoxElement);
+        navPage.clickOnBasvuruComboBox(comboBoxElement);
+    }
+
+    @And("click on ilce combo box {string}")
+    public void clickOnIlceComboBox(String ilce) {
+
+        navPage.clickOnIlceComboBox(ilce);
+    }
+
+    @And("click on mahalle combo box {string}")
+    public void clickOnMahalleComboBox(String mahalle) {
+
+        navPage.clickOnMahalleComboBox(mahalle);
+    }
+
+    @Then("click the caddeSokak box {string}")
+    public void clickTheCaddeSokakBox(String caddeSokak) {
+
+        navPage.clickOnCaddeSokakComboBox(caddeSokak);
     }
 }

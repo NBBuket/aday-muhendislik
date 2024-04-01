@@ -1,4 +1,4 @@
-Feature: Check Box Marking
+Feature: Basvuru Combo Box Marking
 
   Scenario Outline: Login to the e-Devlet page, go to the link, mark the checkbox
 
@@ -20,9 +20,8 @@ Feature: Check Box Marking
     When navigate to the given link "<link>"
     #verilen linke yönlendirir.
 
-    Then click on combo box "<box>"
-    #verilen linkte tıklanmak istenen dropdown elemanına tıklar (ilk comboBox classına sahip eleman)
+    Then click on basvuru combo box "<box>"
+    #verilen linkte başvuru dropdown elemanına tıklar.
 
     Examples:
       | tck | password | link | box |
-
