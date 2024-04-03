@@ -65,27 +65,9 @@ public class StepDefinitions {
         navPage.infoBoxCheck();
     }
 
-    @Then("click on basvuru combo box {string}")
-    public void clickOnBasvuruComboBox(String comboBoxElement) {
+    @And("click on the combo box {string} and select {string}")
+    public void clickOnTheComboBoxAndSelect(String idName, String ilce) {
 
-        navPage.clickOnBasvuruComboBox(comboBoxElement);
-    }
-
-    @And("click on ilce combo box {string}")
-    public void clickOnIlceComboBox(String ilce) {
-
-        navPage.clickOnIlceComboBox(ilce);
-    }
-
-    @And("click on mahalle combo box {string}")
-    public void clickOnMahalleComboBox(String mahalle) {
-
-        navPage.clickOnMahalleComboBox(mahalle);
-    }
-
-    @Then("click the caddeSokak box {string}")
-    public void clickTheCaddeSokakBox(String caddeSokak) {
-
-        navPage.clickOnCaddeSokakComboBox(caddeSokak);
+        navPage.clickOnComboBox(idName, ilce);
     }
 }

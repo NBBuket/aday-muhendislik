@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import java.util.List;
+import java.util.Objects;
 
 public class NavigatePageObjects extends AbstractClass {
 
@@ -22,31 +24,20 @@ public class NavigatePageObjects extends AbstractClass {
         System.out.println("Message: " + controlMessage.getText());
     }
 
-    @FindBy(name = "basvuruTipi") //classı comboBox olan başvuru dropdown elementi
-    private WebElement comboBox;
-    public void clickOnBasvuruComboBox(String comboBoxElement) {
+    @FindBy(className = "comboBox") //class'ı comboBox olan elementler
+    private List<WebElement> idNames;
+    public List<WebElement> getIdNames() { //elementlere ulaşmamızı sağlayan get fonksiyonu
 
-        selectElementFromDropdown(comboBox, comboBoxElement);
+        return idNames;
     }
+    public void clickOnComboBox(String comboBoxId, String givenIlce) {
 
-    @FindBy(name = "ilceKodu") ////classı comboBox olan ilçe dropdown elementi
-    private WebElement ilceComboBox;
-    public void clickOnIlceComboBox(String ilce) {
+        for (WebElement element : getIdNames()) { //elementleri tek tek gezerek verilen id'yi arayan for döngüsü
 
-        selectElementFromDropdown(ilceComboBox, ilce);
-    }
+            if(Objects.equals(element.getAttribute("id"), comboBoxId)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
 
-    @FindBy(name = "mahalleKodu") ////classı comboBox olan mahalle dropdown elementi
-    private WebElement mahalleComboBox;
-    public void clickOnMahalleComboBox(String mahalle) {
-
-        selectElementFromDropdown(mahalleComboBox, mahalle);
-    }
-
-    @FindBy(name = "caddeSokakKodu") ////classı comboBox olan cadde/sokak dropdown elementi
-    private WebElement caddeSokakComboBox;
-    public void clickOnCaddeSokakComboBox(String caddeSokak) {
-
-        selectElementFromDropdown(caddeSokakComboBox, caddeSokak);
+                selectElementFromDropdown(element, givenIlce);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
-Feature: Basvuru Combo Box Marking
+Feature: Select the given value on given comboBox
 
-  Scenario Outline: Login to the e-Devlet page, go to the link, mark the checkbox
+  Scenario Outline: Login to the e-Devlet page, navigate to the link, select the comboBox and value
 
     Given open the website
     #e-devlet sitesini açıyor.
@@ -20,8 +20,8 @@ Feature: Basvuru Combo Box Marking
     When navigate to the given link "<link>"
     #verilen linke yönlendirir.
 
-    Then click on basvuru combo box "<box>"
-    #verilen linkte başvuru dropdown elemanına tıklar.
+    And click on the combo box "<box>" and select "<element>"
+    #id'si verilen comboBox elemanında verilen değeri seçiyor.
 
     Examples:
-      | tck | password | link | box |
+      | tck | password | link | box | element |
