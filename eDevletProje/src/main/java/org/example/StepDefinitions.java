@@ -66,8 +66,14 @@ public class StepDefinitions {
     }
 
     @And("click on the combo box {string} and select {string}")
-    public void clickOnTheComboBoxAndSelect(String idName, String ilce) {
+    public void clickOnTheComboBoxAndSelect(String idName, String elementValue) {
 
-        navPage.clickOnComboBox(idName, ilce);
+        navPage.clickOnComboBox(idName, elementValue);
+    }
+
+    @And("click on the check box {string} and select")
+    public void clickOnTheCheckBoxAndSelect(String checkBoxId) {
+
+        navPage.clickOnCheckBox(checkBoxId);
     }
 }

@@ -1,6 +1,8 @@
-Feature: Select the given value on given comboBox
+#Nedeni bulunamamış bir şekilde ilk denemede işaretleyemiyor ama sonrasında çalışıyor
 
-  Scenario Outline: Login to the e-Devlet page, navigate to the link, select the comboBox and value
+Feature: Select the given value on given checkBox
+
+  Scenario Outline: Login to the e-Devlet page, navigate to the link, select the checkBox and value
 
     Given open the website
     #e-devlet sitesini açıyor.
@@ -20,8 +22,8 @@ Feature: Select the given value on given comboBox
     When navigate to the given link "<link>"
     #verilen linke yönlendirir.
 
-    And click on the combo box "<box>" and select "<element>"
-    #id'si verilen comboBox elementinde verilen değeri seçiyor.
+    And click on the check box "<box>" and select
+    #id'si verilen checkBox elementini seçiyor.
 
     Examples:
-      | tck | password | link | box | element |
+      | tck | password | link | box |
