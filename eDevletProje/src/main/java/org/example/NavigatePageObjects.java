@@ -62,5 +62,49 @@ public class NavigatePageObjects extends AbstractClass {
         }
     }
 
+    @FindBy(className = "text")
+    private List <WebElement> textBox;
+    public List<WebElement> getTextBox() { //elementlere ulaşmamızı sağlayan get fonksiyonu
+
+        return textBox;
+    }
+    public void clickOnTextBoxAndWrite(String textBox, String text) {
+
+        for (WebElement element: getTextBox()) {
+
+            if(Objects.equals(element.getAttribute("id"), textBox)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
+
+                Actions actions = new Actions(driver);
+                actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
+                actions.perform();
+                clickFunction(element);
+                sendKeysFunctions(element, text);
+            }
+        }
+    }
+
+    @FindBy(className = "textarea")
+    private List <WebElement> textAreaBox;
+    public List<WebElement> getTextAreaBox() { //elementlere ulaşmamızı sağlayan get fonksiyonu
+
+        return textAreaBox;
+    }
+    public void clickOnTextAreaBoxAndWrite(String textAreaBox, String text) {
+
+        for (WebElement element: getTextAreaBox()) {
+
+            if(Objects.equals(element.getAttribute("id"), textAreaBox)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
+
+                Actions actions = new Actions(driver);
+                actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
+                actions.perform();
+                clickFunction(element);
+                element.clear();
+                sendKeysFunctions(element, text);
+
+            }
+        }
+    }
+
 
 }

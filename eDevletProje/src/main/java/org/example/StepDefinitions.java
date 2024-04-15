@@ -76,4 +76,16 @@ public class StepDefinitions {
 
         navPage.clickOnCheckBox(checkBoxId);
     }
+
+    @And("click on the text box {string} and write {string}")
+    public void clickOnTheTextBoxAndWrite(String textBox, String text) {
+
+        navPage.clickOnTextBoxAndWrite(textBox, text);
+    }
+
+    @And("click on the textArea box {string} and write {string}")
+    public void clickOnTheTextAreaBoxAndWrite(String textAreaBox, String text) {
+
+        navPage.clickOnTextAreaBoxAndWrite(textAreaBox, text);
+    }
 }
