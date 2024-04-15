@@ -106,5 +106,25 @@ public class NavigatePageObjects extends AbstractClass {
         }
     }
 
+    @FindBy(className = "submitButton")
+    private List <WebElement> button;
+    public List<WebElement> getButton() { //elementlere ulaşmamızı sağlayan get fonksiyonu
+
+        return button;
+    }
+    public void clickTheButton(String buttonValue) {
+
+        for (WebElement element: getButton()) {
+
+            if(Objects.equals(element.getAttribute("value"), buttonValue)) { //value eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
+
+                Actions actions = new Actions(driver);
+                actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
+                actions.perform();
+                clickFunction(element);
+            }
+        }
+    }
+
 
 }

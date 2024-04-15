@@ -88,4 +88,12 @@ public class StepDefinitions {
 
         navPage.clickOnTextAreaBoxAndWrite(textAreaBox, text);
     }
+
+    @Then("click the button {string}")
+    public void clickTheButton(String buttonValue) {
+
+        navPage.clickTheButton(buttonValue);
+    }
+
+
 }
