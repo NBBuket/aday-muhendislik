@@ -86,7 +86,7 @@ public class StepDefinitions {
     @And("click on the textArea box {string} and write {string}")
     public void clickOnTheTextAreaBoxAndWrite(String textAreaBox, String text) {
 
-        navPage.clickOnTextAreaBoxAndWrite(textAreaBox, text);
+        navPage.clickOnTextBoxAndWrite(textAreaBox, text);
     }
 
     @Then("click the button {string}")
@@ -94,6 +94,8 @@ public class StepDefinitions {
 
         navPage.clickTheButton(buttonValue);
     }
+
+
 
 
 }

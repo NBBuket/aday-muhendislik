@@ -1,5 +1,3 @@
-#Nedeni bulunamamış bir şekilde ilk denemede işaretleyemiyor ama sonrasında çalışıyor
-
 Feature: Select the given value on given checkBox
 
   Scenario Outline: Login to the e-Devlet page, navigate to the link, select the checkBox and value
@@ -22,8 +20,8 @@ Feature: Select the given value on given checkBox
     When navigate to the given link "<link>"
     #verilen linke yönlendirir.
 
-    And click on the check box "<box>" and select
-    #id'si verilen checkBox elementini seçiyor.
+    Then click on the check box "<box>" and select
+    #id'si verilen checkBox elementini seçiyor. Elementi seçtiğinde doğrulama için konsola da yazdırıyor.
 
     Examples:
       | tck | password | link | box |

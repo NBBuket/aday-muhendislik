@@ -21,7 +21,7 @@ Feature: Select the given textArea box and write the given text
     #verilen linke yönlendirir.
 
     And click on the textArea box "<textAreaBox>" and write "<text>"
-    #id'si verilen textArea elementini seçip verilen text'i yazdırır.
+    #id'si verilen textArea elementini seçip verilen text'i yazdırır. Yazılan text ve gönderilenin aynı olup olmaması kontrol edilir.
 
     Examples:
       | tck | password | link | textAreaBox | text |

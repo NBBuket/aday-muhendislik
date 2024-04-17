@@ -42,4 +42,11 @@ public abstract class AbstractClass {
         Select slc = new Select(dropdown);
         slc.selectByVisibleText(element);
     }
+
+    //İki parametrenin de string olduğu zaman doğrulamayı yapan fonksiyon
+    public void assertionString(String actual, String expected) {
+
+        Assert.assertEquals(actual, expected);
+        System.out.println("Message: " + actual);
+    }
 }

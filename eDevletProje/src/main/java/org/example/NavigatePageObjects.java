@@ -3,6 +3,7 @@ package org.example;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
@@ -38,6 +39,13 @@ public class NavigatePageObjects extends AbstractClass {
             if(Objects.equals(element.getAttribute("id"), comboBoxId)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
 
                 selectElementFromDropdown(element, givenValue);
+                if(element.isDisplayed()) {
+
+                    System.out.println("Verification succeed");
+                } else {
+
+                    System.out.println("Verification failed");
+                }
             }
         }
     }
@@ -58,19 +66,28 @@ public class NavigatePageObjects extends AbstractClass {
                 actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
                 actions.perform();
                 element.click();
+                if(element.isSelected()) {
+
+                    System.out.println("Verification succeed");
+                } else {
+
+                    System.out.println("Verification failed");
+                }
             }
         }
     }
 
-    @FindBy(className = "text")
-    private List <WebElement> textBox;
-    public List<WebElement> getTextBox() { //elementlere ulaşmamızı sağlayan get fonksiyonu
+   @FindAll({
+           @FindBy(className = "text"),
+           @FindBy(className = "textarea")})
+    private List <WebElement> textElement;
+    public List<WebElement> getTextElement() { //elementlere ulaşmamızı sağlayan get fonksiyonu
 
-        return textBox;
+        return textElement;
     }
     public void clickOnTextBoxAndWrite(String textBox, String text) {
 
-        for (WebElement element: getTextBox()) {
+        for (WebElement element: getTextElement()) {
 
             if(Objects.equals(element.getAttribute("id"), textBox)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
 
@@ -78,30 +95,9 @@ public class NavigatePageObjects extends AbstractClass {
                 actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
                 actions.perform();
                 clickFunction(element);
-                sendKeysFunctions(element, text);
-            }
-        }
-    }
-
-    @FindBy(className = "textarea")
-    private List <WebElement> textAreaBox;
-    public List<WebElement> getTextAreaBox() { //elementlere ulaşmamızı sağlayan get fonksiyonu
-
-        return textAreaBox;
-    }
-    public void clickOnTextAreaBoxAndWrite(String textAreaBox, String text) {
-
-        for (WebElement element: getTextAreaBox()) {
-
-            if(Objects.equals(element.getAttribute("id"), textAreaBox)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
-
-                Actions actions = new Actions(driver);
-                actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
-                actions.perform();
-                clickFunction(element);
                 element.clear();
                 sendKeysFunctions(element, text);
-
+                assertionString(element.getAttribute("value"), text); //verdiğimiz textin yazılıp yazılmadığını kontrol eden fonksiyon
             }
         }
     }

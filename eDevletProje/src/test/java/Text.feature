@@ -21,7 +21,7 @@ Feature: Select the given text box and write the given text
     #verilen linke yönlendirir.
 
     And click on the text box "<textBox>" and write "<text>"
-    #id'si verilen text elementini seçip verilen text'i yazdırır.
+    #id'si verilen text elementini seçip verilen text'i yazdırır. Yazılan text ve gönderilenin aynı olup olmaması kontrol edilir.
 
     Examples:
       | tck | password | link | textBox | text |
