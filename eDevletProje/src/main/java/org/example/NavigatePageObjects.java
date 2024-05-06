@@ -1,11 +1,15 @@
 package org.example;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -17,6 +21,7 @@ public class NavigatePageObjects extends AbstractClass {
 
         driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
+        driver.manage().window().maximize();
     }
 
     @FindBy(xpath = "/html/body/main/div/section/aside/ul/li[1]") //sol yanda yer alan bilgilendirme mesaj
@@ -63,23 +68,26 @@ public class NavigatePageObjects extends AbstractClass {
             if(Objects.equals(element.getAttribute("id"), checkBoxId)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
 
                 Actions actions = new Actions(driver);
-                actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
-                actions.perform();
-                element.click();
-                if(element.isSelected()) {
+                actions.moveToElement(element).perform(); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
+                wait.until(ExpectedConditions.elementToBeClickable(element));
 
-                    System.out.println("Verification succeed");
+                if(!element.isSelected()) {
+
+                    element.click();
+                    System.out.println("Marking succeed");
                 } else {
 
-                    System.out.println("Verification failed");
+                    System.out.println("Marking is not necessary");
                 }
             }
         }
     }
 
-   @FindAll({
+    @FindAll({
+
            @FindBy(className = "text"),
            @FindBy(className = "textarea")})
+
     private List <WebElement> textElement;
     public List<WebElement> getTextElement() { //elementlere ulaşmamızı sağlayan get fonksiyonu
 
@@ -92,8 +100,7 @@ public class NavigatePageObjects extends AbstractClass {
             if(Objects.equals(element.getAttribute("id"), textBox)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
 
                 Actions actions = new Actions(driver);
-                actions.scrollToElement(element); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
-                actions.perform();
+                actions.scrollToElement(element).perform(); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
                 clickFunction(element);
                 element.clear();
                 sendKeysFunctions(element, text);
@@ -121,6 +128,7 @@ public class NavigatePageObjects extends AbstractClass {
             }
         }
     }
+
 
 
 }

@@ -1,3 +1,5 @@
+#hala bazı element id'lerinde düzgün çalışmıyor, en olası sebep internet hızı gibi görünüyor.
+
 Feature: Select the given value on given checkBox
 
   Scenario Outline: Login to the e-Devlet page, navigate to the link, select the checkBox and value

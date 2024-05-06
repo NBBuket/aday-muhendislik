@@ -13,6 +13,7 @@ public class LoginPageObjects extends AbstractClass {
 
         driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
+        driver.manage().window().maximize();
     }
 
     @FindBy(id = "l")

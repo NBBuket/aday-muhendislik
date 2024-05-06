@@ -95,7 +95,4 @@ public class StepDefinitions {
         navPage.clickTheButton(buttonValue);
     }
 
-
-
-
 }
