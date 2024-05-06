@@ -28,5 +28,4 @@ Feature: Pick the given date
 
 
     Examples:
-      | tck         | password | link                                                                      | date       |
-      | 16051098538 | Bb1.Bb1. | https://www.turkiye.gov.tr/bahcelievler-belediyesi-nikah-salonu-sorgulama | 13/07/2025 |
+      | tck | password | link | date |
