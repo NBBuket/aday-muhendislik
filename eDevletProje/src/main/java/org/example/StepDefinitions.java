@@ -95,4 +95,15 @@ public class StepDefinitions {
         navPage.clickTheButton(buttonValue);
     }
 
+    @And("pick the given date {string}")
+    public void pickTheGivenDate(String givenDate) {
+
+        navPage.pickTheDate(givenDate);
+    }
+
+    @Then("check the date")
+    public void checkTheDate() {
+
+        navPage.checkCalendar();
+    }
 }

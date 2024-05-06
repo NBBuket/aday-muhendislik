@@ -1,6 +1,5 @@
 package org.example;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -8,7 +7,6 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Objects;
@@ -129,6 +127,18 @@ public class NavigatePageObjects extends AbstractClass {
         }
     }
 
+    @FindBy(id = "tarih")
+    private WebElement date;
+    public void pickTheDate(String givenDate) {
 
+        sendKeysFunctions(date, givenDate);
+    }
+
+    @FindBy(className = "edui-date__toggle")
+    private WebElement calendar;
+    public void checkCalendar() {
+
+        clickFunction(calendar);
+    }
 
 }
