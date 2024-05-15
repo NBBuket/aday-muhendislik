@@ -22,10 +22,11 @@ public abstract class AbstractClass {
     }
 
     //Sayfa objelerinde genel kullanılan yazdırma fonksiyonu
-    public void sendKeysFunctions(WebElement sendKeysElement, String value) {
+    public boolean sendKeysFunctions(WebElement sendKeysElement, String value) {
 
         wait.until(ExpectedConditions.visibilityOf(sendKeysElement));
         sendKeysElement.sendKeys(value);
+        return true;
     }
 
     //Then adımında yer alan doğrulamayı yapan fonksiyon

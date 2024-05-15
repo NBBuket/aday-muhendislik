@@ -1,5 +1,6 @@
 package org.example;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -38,12 +39,17 @@ public class LoginPageObjects extends AbstractClass {
     public void typeTck(String fileName) {
 
         JSONParser parser = new JSONParser();
-        Object obj;
+        JSONArray arr;
         try (FileReader reader = new FileReader(fileName)) {
-            obj = parser.parse(reader);
-            JSONObject person = (JSONObject) obj;
-            String tck = (String) person.get("tck");
-            sendKeysFunctions(tckArea, tck);
+            arr = (JSONArray) parser.parse(reader);
+
+            for (Object obj : arr) {
+                JSONObject person = (JSONObject) obj;
+                String tck = (String) person.get("tck");
+                if(sendKeysFunctions(tckArea, tck)) {
+                    break;
+                }
+            }
 
         } catch (IOException | ParseException ex) {
             throw new RuntimeException(ex);
@@ -57,13 +63,19 @@ public class LoginPageObjects extends AbstractClass {
         clickFunction(sifreArea);
     }
     public void typeSifre(String fileName) {
+
         JSONParser parser = new JSONParser();
-        Object obj;
+        JSONArray arr;
         try (FileReader reader = new FileReader(fileName)) {
-            obj = parser.parse(reader);
-            JSONObject person = (JSONObject) obj;
-            String password = (String) person.get("password");
-            sendKeysFunctions(sifreArea, password);
+            arr = (JSONArray) parser.parse(reader);
+
+            for (Object obj : arr) {
+                JSONObject person = (JSONObject) obj;
+                String password = (String) person.get("password");
+                if(sendKeysFunctions(sifreArea, password)) {
+                    break;
+                }
+            }
 
         } catch (IOException | ParseException ex) {
             throw new RuntimeException(ex);
