@@ -8,11 +8,8 @@ Feature: Select the given value on given comboBox
     And click Giris Yap button
     #sağ üstteki giriş yap butonuna tıklıyor.
 
-    And type tck "<tck>"
-    #tc kimlik no girme kısmına tıklıyor ve tc kimlik no'sunu yazdırıyor.
-
-    And type password "<password>"
-    #şifre girme kısmına tıklıyor ve şifreyi yazdırıyor.
+    And use data given in "<file>"
+    #verilen dosyadaki tck ve password verileriyle giriş yapıyor.
 
     And click on giris yap button
     #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
@@ -24,4 +21,5 @@ Feature: Select the given value on given comboBox
     #id'si verilen comboBox elementinde verilen değeri seçiyor.
 
     Examples:
-      | tck | password | link | box | element |
+      | file          | link                                                                                    | box         | element |
+      | dataFile.json | https://www.turkiye.gov.tr/tekirdag-buyuksehir-belediyesi-talep-oneri-basvuru-sorgulama | basvuruTipi | TALEP   |

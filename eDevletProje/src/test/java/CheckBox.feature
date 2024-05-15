@@ -10,11 +10,8 @@ Feature: Select the given value on given checkBox
     And click Giris Yap button
     #sağ üstteki giriş yap butonuna tıklıyor.
 
-    And type tck "<tck>"
-    #tc kimlik no girme kısmına tıklıyor ve tc kimlik no'sunu yazdırıyor.
-
-    And type password "<password>"
-    #şifre girme kısmına tıklıyor ve şifreyi yazdırıyor.
+    And use data given in "<file>"
+    #verilen dosyadaki tck ve password verileriyle giriş yapıyor.
 
     And click on giris yap button
     #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
@@ -26,4 +23,5 @@ Feature: Select the given value on given checkBox
     #id'si verilen checkBox elementini seçiyor. Elementi seçtiğinde doğrulama için konsola da yazdırıyor.
 
     Examples:
-      | tck | password | link | box |
+      | file          | link                                                                                    | box |
+      | dataFile.json | https://www.turkiye.gov.tr/tekirdag-buyuksehir-belediyesi-talep-oneri-basvuru-sorgulama | cevapSMS |

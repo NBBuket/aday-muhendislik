@@ -8,11 +8,8 @@ Feature: Login and Navigate Test
     And click Giris Yap button
     #sağ üstteki giriş yap butonuna tıklıyor.
 
-    And type tck "<tck>"
-    #tc kimlik no girme kısmına tıklıyor ve tc kimlik no'sunu yazdırıyor.
-
-    And type password "<password>"
-    #şifre girme kısmına tıklıyor ve şifreyi yazdırıyor.
+    And use data given in "<file>"
+    #verilen dosyadaki tck ve password verileriyle giriş yapıyor.
 
     And click on giris yap button
     #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
@@ -24,4 +21,5 @@ Feature: Login and Navigate Test
     #değeri verilen butona tıklar.
 
     Examples:
-      | tck | password | link | button |
+      | file       | link                                                                                    | button |
+      | dataFile.json | https://www.turkiye.gov.tr/tekirdag-buyuksehir-belediyesi-talep-oneri-basvuru-sorgulama | Başvur |

@@ -27,20 +27,6 @@ public class StepDefinitions {
         page.clickOnGirisYapButonu();
     }
 
-    @And("type tck {string}")
-    public void typeTck(String tck) {
-
-        page.clickOnTckArea();
-        page.typeTck(tck);
-    }
-
-    @And("type password {string}")
-    public void typeSifre(String password) {
-
-        page.clickOnSifreArea();
-        page.typeSifre(password);
-    }
-
     @When("click on giris yap button")
     public void click_on_giris_yap_button() {
 
@@ -105,5 +91,14 @@ public class StepDefinitions {
     public void checkTheDate() {
 
         navPage.checkCalendar();
+    }
+
+    @And("use data given in {string}")
+    public void useDataGivenIn(String fileName) {
+
+        page.clickOnTckArea();
+        page.typeTck(fileName);
+        page.clickOnSifreArea();
+        page.typeSifre(fileName);
     }
 }

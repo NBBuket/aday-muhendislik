@@ -1,9 +1,15 @@
 package org.example;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.FileReader;
+import java.io.IOException;
 
 public class LoginPageObjects extends AbstractClass {
 
@@ -29,9 +35,19 @@ public class LoginPageObjects extends AbstractClass {
 
         clickFunction(tckArea);
     }
-    public void typeTck(String tck) {
+    public void typeTck(String fileName) {
 
-        sendKeysFunctions(tckArea, tck);
+        JSONParser parser = new JSONParser();
+        Object obj;
+        try (FileReader reader = new FileReader(fileName)) {
+            obj = parser.parse(reader);
+            JSONObject person = (JSONObject) obj;
+            String tck = (String) person.get("tck");
+            sendKeysFunctions(tckArea, tck);
+
+        } catch (IOException | ParseException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @FindBy(id = "egpField") //şifre girme alanı
@@ -40,9 +56,18 @@ public class LoginPageObjects extends AbstractClass {
 
         clickFunction(sifreArea);
     }
-    public void typeSifre(String password) {
+    public void typeSifre(String fileName) {
+        JSONParser parser = new JSONParser();
+        Object obj;
+        try (FileReader reader = new FileReader(fileName)) {
+            obj = parser.parse(reader);
+            JSONObject person = (JSONObject) obj;
+            String password = (String) person.get("password");
+            sendKeysFunctions(sifreArea, password);
 
-        sendKeysFunctions(sifreArea, password);
+        } catch (IOException | ParseException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @FindBy(name = "submitButton") //tc ve şifre yazıldıktan sonra tıklanması gereken giriş yap butonu
@@ -59,4 +84,5 @@ public class LoginPageObjects extends AbstractClass {
 
         assertion(mainInfo, "e-Devlet Kapısı ile bilgi ve belgelerinize tek noktadan ulaşabilir, başvuru işlemlerinizi hızla gerçekleştirebilirsiniz");
     }
+
 }

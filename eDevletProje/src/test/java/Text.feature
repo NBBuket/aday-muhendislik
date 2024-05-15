@@ -8,11 +8,8 @@ Feature: Select the given text box and write the given text
     And click Giris Yap button
     #sağ üstteki giriş yap butonuna tıklıyor.
 
-    And type tck "<tck>"
-    #tc kimlik no girme kısmına tıklıyor ve tc kimlik no'sunu yazdırıyor.
-
-    And type password "<password>"
-    #şifre girme kısmına tıklıyor ve şifreyi yazdırıyor.
+    And use data given in "<file>"
+    #verilen dosyadaki tck ve password verileriyle giriş yapıyor.
 
     And click on giris yap button
     #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
@@ -24,4 +21,5 @@ Feature: Select the given text box and write the given text
     #id'si verilen text elementini seçip verilen text'i yazdırır. Yazılan text ve gönderilenin aynı olup olmaması kontrol edilir.
 
     Examples:
-      | tck | password | link | textBox | text |
+      | file          | link                                                                                    | textBox | text       |
+      | dataFile.json | https://www.turkiye.gov.tr/tekirdag-buyuksehir-belediyesi-talep-oneri-basvuru-sorgulama | cepTel  | 0123456789 |
