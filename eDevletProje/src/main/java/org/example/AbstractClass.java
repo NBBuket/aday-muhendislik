@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import java.time.Duration;
 
 public abstract class AbstractClass {
@@ -34,7 +33,7 @@ public abstract class AbstractClass {
 
         wait.until(ExpectedConditions.visibilityOf(actual));
         Assert.assertEquals(actual.getText(), expected);
-        infoLog infoMessage = new infoLog();
+        InfoLog infoMessage = new InfoLog();
         infoMessage.sampleLog(actual.getText());
     }
 
@@ -49,7 +48,7 @@ public abstract class AbstractClass {
     public void assertionString(String actual, String expected) {
 
         Assert.assertEquals(actual, expected);
-        infoLog infoMessage = new infoLog();
+        InfoLog infoMessage = new InfoLog();
         infoMessage.sampleLog(actual);
     }
 }

@@ -26,7 +26,7 @@ public class NavigatePageObjects extends AbstractClass {
     private WebElement controlMessage;
     public void infoBoxCheck() {
 
-        infoLog infoMessage = new infoLog();
+        InfoLog infoMessage = new InfoLog();
         infoMessage.sampleLog(controlMessage.getText());
     }
 
@@ -42,7 +42,7 @@ public class NavigatePageObjects extends AbstractClass {
 
             if(Objects.equals(element.getAttribute("id"), comboBoxId)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
 
-                infoLog infoMessage = new infoLog();
+                InfoLog infoMessage = new InfoLog();
                 selectElementFromDropdown(element, givenValue);
                 if(element.isDisplayed()) {
 
@@ -71,7 +71,7 @@ public class NavigatePageObjects extends AbstractClass {
                 Actions actions = new Actions(driver);
                 actions.moveToElement(element).perform(); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
                 wait.until(ExpectedConditions.elementToBeClickable(element));
-                infoLog infoMessage = new infoLog();
+                InfoLog infoMessage = new InfoLog();
 
                 if(!element.isSelected()) {
 
