@@ -8,6 +8,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+class infoLog {
+    private static final  Logger LOGGER =  Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    public void sampleLog(String message) {
+
+        LOGGER.log(Level.INFO, message);
+    }
+}
 
 public abstract class AbstractClass {
 
@@ -34,7 +44,8 @@ public abstract class AbstractClass {
 
         wait.until(ExpectedConditions.visibilityOf(actual));
         Assert.assertEquals(actual.getText(), expected);
-        System.out.println("Message: " + actual.getText());
+        infoLog infoMessage = new infoLog();
+        infoMessage.sampleLog(actual.getText());
     }
 
     //ComboBox classındaki dropdown elemanlarından seçilecek olanı seçen fonksiyon
@@ -48,6 +59,7 @@ public abstract class AbstractClass {
     public void assertionString(String actual, String expected) {
 
         Assert.assertEquals(actual, expected);
-        System.out.println("Message: " + actual);
+        infoLog infoMessage = new infoLog();
+        infoMessage.sampleLog(actual);
     }
 }

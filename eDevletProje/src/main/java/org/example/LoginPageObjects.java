@@ -95,6 +95,7 @@ public class LoginPageObjects extends AbstractClass {
     public void mainInfoCheck() {
 
         assertion(mainInfo, "e-Devlet Kapısı ile bilgi ve belgelerinize tek noktadan ulaşabilir, başvuru işlemlerinizi hızla gerçekleştirebilirsiniz");
+        driver.quit();
     }
 
 }

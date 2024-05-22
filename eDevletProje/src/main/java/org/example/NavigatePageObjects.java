@@ -26,7 +26,8 @@ public class NavigatePageObjects extends AbstractClass {
     private WebElement controlMessage;
     public void infoBoxCheck() {
 
-        System.out.println("Message: " + controlMessage.getText());
+        infoLog infoMessage = new infoLog();
+        infoMessage.sampleLog(controlMessage.getText());
     }
 
     @FindBy(className = "comboBox") //class'ı comboBox olan elementler
@@ -41,16 +42,18 @@ public class NavigatePageObjects extends AbstractClass {
 
             if(Objects.equals(element.getAttribute("id"), comboBoxId)) { //id eşleştiğinde verilen değerin seçilmesini sağlayan if koşulu
 
+                infoLog infoMessage = new infoLog();
                 selectElementFromDropdown(element, givenValue);
                 if(element.isDisplayed()) {
 
-                    System.out.println("Verification succeed");
+                    infoMessage.sampleLog("Verification succeed");
                 } else {
 
-                    System.out.println("Verification failed");
+                    infoMessage.sampleLog("Verification failed");
                 }
             }
         }
+
     }
 
     @FindBy(className = "checkBox")
@@ -68,17 +71,19 @@ public class NavigatePageObjects extends AbstractClass {
                 Actions actions = new Actions(driver);
                 actions.moveToElement(element).perform(); //element sayfada ilk başta görünmüyorsa elementin olduğu kısıma ilerletir
                 wait.until(ExpectedConditions.elementToBeClickable(element));
+                infoLog infoMessage = new infoLog();
 
                 if(!element.isSelected()) {
 
                     element.click();
-                    System.out.println("Marking succeed");
+                    infoMessage.sampleLog("Marking succeed");
                 } else {
 
-                    System.out.println("Marking is not necessary");
+                    infoMessage.sampleLog("Marking is not necessary");
                 }
             }
         }
+
     }
 
     @FindAll({

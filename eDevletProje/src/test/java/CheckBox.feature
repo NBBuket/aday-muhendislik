@@ -1,4 +1,4 @@
-#hala bazı element id'lerinde düzgün çalışmıyor, en olası sebep internet hızı gibi görünüyor.
+#hala id telefon olduğunda düzgün çalışmıyor, en olası sebep internet hızı gibi görünüyor.
 
 Feature: Select the given value on given checkBox
 
@@ -23,5 +23,5 @@ Feature: Select the given value on given checkBox
     #id'si verilen checkBox elementini seçiyor. Elementi seçtiğinde doğrulama için konsola da yazdırıyor.
 
     Examples:
-      | file          | link                                                                                    | box |
+      | file          | link                                                                                    | box      |
       | dataFile.json | https://www.turkiye.gov.tr/tekirdag-buyuksehir-belediyesi-talep-oneri-basvuru-sorgulama | cevapSMS |

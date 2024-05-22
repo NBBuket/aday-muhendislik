@@ -1,4 +1,3 @@
 [
-  {"tck": "01234567890", "password": "password"},
-  {"tck": "12345678912", "password": "password2"}
+  {"tck": "01234567890", "password": "password"}
 ]
