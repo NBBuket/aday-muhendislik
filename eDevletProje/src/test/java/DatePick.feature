@@ -5,24 +5,17 @@ Feature: Pick the given date
     Given open the website
     #e-devlet sitesini açıyor.
 
-    And click Giris Yap button
-    #sağ üstteki giriş yap butonuna tıklıyor.
-
     And use data given in "<file>"
     #verilen dosyadaki tck ve password verileriyle giriş yapıyor.
 
-    And click on giris yap button
-    #ikinci kere giriş yap butonuna tıklayarak e-Devlet sistemine giriş yaptırıyor.
-
     When navigate to the given link "<link>"
-    #verilen linke yönlendirir.
+    #verilen linke yönlendiriyor.
 
     And pick the given date "<date>"
-    #verilen tarihi ilgili alana yazdırır.
+    #verilen tarihi ilgili alana yazdırıyor.
 
     Then check the date
-    #Takvim görünümünü açarak seçilen tarihi takvim üzerinde gösterir.
-
+    #Takvim görünümünü açarak seçilen tarihi takvim üzerinde gösteriyor.
 
     Examples:
       | file          | link                                                                      | date       |

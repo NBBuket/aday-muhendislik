@@ -11,6 +11,7 @@ public class Driver {
 
         if (driver == null) {
 
+            //driver objesi boş olduğunda chrome driver'ı oluşturur ve onu döner
             driver = new ChromeDriver();
         }
 

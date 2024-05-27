@@ -10,33 +10,26 @@ import java.util.concurrent.TimeUnit;
 public class StepDefinitions {
 
     private WebDriver driver;
-    LoginPageObjects page = new LoginPageObjects();
+    LoginPageObjects logPage = new LoginPageObjects();
     NavigatePageObjects navPage = new NavigatePageObjects();
+
 
     @Given("open the website")
     public void open_the_website() {
 
-        driver = Driver.getDriver();
-        driver.get("https://www.turkiye.gov.tr/");
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        logPage.openTheWebsite();
     }
 
-    @Given("click Giris Yap button")
-    public void click_giris_yap_button() {
+    @And("use data given in {string}")
+    public void useDataGivenIn(String fileName) {
 
-        page.clickOnGirisYapButonu();
-    }
-
-    @When("click on giris yap button")
-    public void click_on_giris_yap_button() {
-
-        page.clickOnGirisYapButonu2();
+        logPage.loginInfo(fileName);
     }
 
     @Then("check the main info")
     public void checkTheMainInfo() {
 
-        page.mainInfoCheck();
+        logPage.mainInfoCheck();
     }
 
     @When("navigate to the given link {string}")
@@ -45,6 +38,7 @@ public class StepDefinitions {
         driver.get(link);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
+
     @Then("check the info box")
     public void check_the_info_box() {
 
@@ -91,14 +85,5 @@ public class StepDefinitions {
     public void checkTheDate() {
 
         navPage.checkCalendar();
-    }
-
-    @And("use data given in {string}")
-    public void useDataGivenIn(String fileName) {
-
-        page.clickOnTckArea();
-        page.typeTck(fileName);
-        page.clickOnSifreArea();
-        page.typeSifre(fileName);
     }
 }
