@@ -1,5 +1,5 @@
-Hata -> "Unable to find an exact match for CDP version 123, returning the closest version; 
-found: 121; Please update to a Selenium version that supports CDP version 123"
+Hata -> "Unable to find an exact match for CDP version xxx, returning the closest version; 
+found: yyy; Please update to a Selenium version that supports CDP version xxx"
 
 Çözüm -> pom.xml dosyasından selenium dependency'sinin versiyonu yükseltilmeli
 
